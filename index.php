@@ -1,6 +1,13 @@
 <?php
 require 'functions.php';
 $pengguna = query("SELECT * FROM users");
+
+
+//tombol cari di tekan 
+if (isset($_POST{"Cari"})) {
+  $pengguna = cari($_POST["keyword"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +23,16 @@ $pengguna = query("SELECT * FROM users");
     <a href="tambah.php">Tambah data pengguna</a>
     <br><br>
 
+    <form action="" method="post">
+      <input type="text" name="keyword" size="40" autofocus placeholder="Masukan keyword pencarian.."autocomplete="off">
+      <button type="submit" name="Cari">Cari</button>   
+    </form>
+    
+    
+    
+    
+    
+<br>
     <table border="1" cellpadding="10" cellspacing="0">
 
         <tr>
