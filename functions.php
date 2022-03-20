@@ -57,16 +57,18 @@ function hapus($id){
                 WHERE id = $id
 
                 ";
-                
-                
-       mysqli_query($conn, $query);   
-       
+                          
+       mysqli_query($conn, $query);      
        return mysqli_affected_rows($conn);
-       
-  
-  
-  
 }
 
+function cari ($keyword) {
+  $query = "SELECT * FROM users
+                WHERE
+                username LIKE '%$keyword%'OR email LIKE '%$keyword%'
+                ";
+  return query ($query);
+  
+}
 
 ?>
